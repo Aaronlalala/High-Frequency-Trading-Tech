@@ -41,3 +41,40 @@ It's a container of network of routers that connect with host racks machines. Ke
     - Machine 2
     - ... (machine coulbe be placed in parition placement groups or separate groups)
   - Racks and access cells are connected (like a parse nn)
+
+# Processes
+
+To reduce the latency between company's servers and exchange's servers, we want to use Amazon EC2 shared CPGs to reduce the distance between the them. Amazon EC2 placement groups are a feature provided by Amazon EC2 that allows customers to control the placement of instances across the underlying hardware within an availability Zone. 
+
+## How does it work
+
+CPG provide a placement strategy that allows EC2 instances to share connectivity to the same spine cell to reduce latency of network.
+
+![image-20230930192552872](../Figures/CPG.png)
+
+Before October 2022, placement groups couldn't be shared between AWS accounts. Since our company and the exchange company are using different accounts, it cannot help. Now, different accounts could share the same spine cell.
+
+However, our company should do the testing before we ask the exchange to share their EC2 cluster placement groups with us.
+
+CPGs are designed to make sure of the physical network proximity thus, they don't span AZs.
+
+## Measurement Metrics
+
+- Network latency
+- Packet processing rates
+
+
+
+## VPC Peering
+
+Customers must estabilish and allow logical network connectivity between their instances. For instances within the same VPN, this is easily achieved by updating seciruty groups. However, in the MM and Exchange case, there is a need to configure additional inter-VPC networking connectivity.
+
+Need to use Amazon VPN Peering to achieve logical connectivity.
+
+
+
+==Is it possible to connect to exchange servers using private network?==
+
+## AWS PrivateLink
+
+Your VPC -> Elastic Network Internface -> Network Load Balancer -> 3rd party VPC, using AWS Private Link.

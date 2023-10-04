@@ -71,8 +71,6 @@ Customers must estabilish and allow logical network connectivity between their i
 
 Need to use Amazon VPN Peering to achieve logical connectivity.
 
-
-
 ==Is it possible to connect to exchange servers using private network?==
 
 ## AWS PrivateLink

@@ -19,8 +19,6 @@ yum install python3 -y
 yum groupinstall "Development Tools" -y
 ```
 
-
-
 # SSH Config
 
 1. Open ssh config file, add the following content

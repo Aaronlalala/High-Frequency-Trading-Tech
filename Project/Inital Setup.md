@@ -12,11 +12,11 @@ Create a security group. Allow SSH traffic from, HTTPS and HTTP.
 
 ```shell
 #!/bin/bash
-yum update -y
-yum install git -y
-yum install python3 -y
+sudo yum update -y
+sudo yum install git -y
+sudo yum install python3 -y
 # Development Tools have c++
-yum groupinstall "Development Tools" -y
+sudo yum groupinstall "Development Tools" -y
 ```
 
 # SSH Config
